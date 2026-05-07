@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CardioVitality | Premium Cardiology Care</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="
+        https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "primary": "#022448",
+                        "surface-variant": "#e3e2e6",
+                        "on-surface-variant": "#43474e",
+                        "secondary-container": "#e0e3e6",
+                        "surface-dim": "#dad9dd",
+                        "surface-tint": "#455f87",
+                        "on-tertiary-container": "#c69b5f",
+                        "on-secondary-fixed-variant": "#44474a",
+                        "inverse-primary": "#adc8f5",
+                        "on-tertiary-fixed-variant": "#60410c",
+                        "secondary-fixed": "#e0e3e6",
+                        "on-surface": "#1a1c1e",
+                        "inverse-surface": "#2f3033",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#191c1e",
+                        "primary-fixed-dim": "#adc8f5",
+                        "primary-fixed": "#d5e3ff",
+                        "on-primary-container": "#8aa4cf",
+                        "on-tertiary-fixed": "#291800",
+                        "outline-variant": "#c4c6cf",
+                        "surface": "#faf9fc",
+                        "outline": "#74777f",
+                        "on-primary": "#ffffff",
+                        "secondary": "#5b5f61",
+                        "surface-container-low": "#f4f3f7",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#626567",
+                        "secondary-fixed-dim": "#c4c7ca",
+                        "tertiary-container": "#503300",
+                        "tertiary-fixed-dim": "#edbf7f",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#e3e2e6",
+                        "on-primary-fixed": "#001c3b",
+                        "primary-container": "#1e3a5f",
+                        "error": "#ba1a1a",
+                        "tertiary": "#341f00",
+                        "on-primary-fixed-variant": "#2d486d",
+                        "surface-bright": "#faf9fc",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#eeedf1",
+                        "tertiary-fixed": "#ffddb2",
+                        "on-background": "#1a1c1e",
+                        "background": "#faf9fc",
+                        "surface-container-high": "#e9e7eb",
+                        "inverse-on-surface": "#f1f0f4",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "unit": "8px",
+                        "margin": "20px",
+                        "section-gap": "60px",
+                        "container-max": "1200px"
+                    },
+                    "fontFamily": {
+                        "h3": ["Noto Serif"],
+                        "label-caps": ["Inter"],
+                        "h2": ["Noto Serif"],
+                        "h1": ["Noto Serif"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "h3": ["24px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "label-caps": ["12px", { "lineHeight": "1.2", "letterSpacing": "0.08em", "fontWeight": "600" }],
+                        "h2": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "h1": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .ekg-line {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: dash 5s linear infinite;
+        }
+
+        @keyframes dash {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+
+        .nav-blur {
+            backdrop-filter: blur(20px) saturate(180%);
+            background-color: rgba(255, 255, 255, 0.35);
+            /* Ultra transparente e vítreo */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Reveal Animation Styles */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal-on-scroll.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+    <!-- Header / TopAppBar -->
+    <header class="fixed top-0 w-full z-50 shadow-sm nav-blur transition-all duration-300 ease-in-out">
+        <div class="flex justify-between items-center h-16 md:h-20 px-margin max-w-container-max mx-auto">
+            <div class="font-h2 text-h3 md:text-h3 text-primary tracking-tight">CardioVitality</div>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex gap-8 items-center">
+                <a class="font-body-md text-primary font-bold border-b-2 border-primary pb-1 transition-all duration-300"
+                    href="#">Início</a>
+                <a class="font-body-md text-on-surface-variant hover:text-primary transition-colors duration-300"
+                    href="#services">Especialidades</a>
+                <a class="font-body-md text-on-surface-variant hover:text-primary transition-colors duration-300"
+                    href="#about">O Especialista</a>
+                <a class="font-body-md text-on-surface-variant hover:text-primary transition-colors duration-300"
+                    href="#anatomy">Anatomia</a>
+                <a class="font-body-md text-on-surface-variant hover:text-primary transition-colors duration-300"
+                    href="#contact">Contato</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <button
+                    class="hidden md:block bg-primary text-on-primary px-6 py-2.5 rounded-full font-label-caps hover:opacity-90 transition-opacity">
+                    Book Appointment
+                </button>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-primary p-2">
+                    <span class="material-symbols-outlined text-3xl">menu</span>
+                </button>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-surface z-[100] translate-x-full transition-transform duration-500 lg:hidden">
+        <div class="flex flex-col h-full p-8">
+            <div class="flex justify-between items-center mb-12">
+                <div class="font-h2 text-h3 text-primary tracking-tight">CardioVitality</div>
+                <button id="close-menu-btn" class="text-primary">
+                    <span class="material-symbols-outlined text-3xl">close</span>
+                </button>
+            </div>
+            <nav class="flex flex-col gap-8">
+                <a class="text-3xl font-h2 text-primary" href="#" onclick="toggleMenu()">Início</a>
+                <a class="text-3xl font-h2 text-primary" href="#services" onclick="toggleMenu()">Especialidades</a>
+                <a class="text-3xl font-h2 text-primary" href="#about" onclick="toggleMenu()">O Especialista</a>
+                <a class="text-3xl font-h2 text-primary" href="#anatomy" onclick="toggleMenu()">Anatomia</a>
+                <a class="text-3xl font-h2 text-primary" href="#contact" onclick="toggleMenu()">Contato</a>
+            </nav>
+            <div class="mt-auto">
+                <button class="w-full bg-primary text-on-primary py-5 rounded-xl font-label-caps text-lg shadow-lg">
+                    Agendar Consulta
+                </button>
+            </div>
+        </div>
+    </div>
+    <main>
+        <!-- Hero Section -->
+        <section id="hero-section" class="relative h-screen w-full overflow-hidden">
+            <!-- Background Video -->
+            <video id="hero-video" class="absolute inset-0 w-full h-full object-cover -z-20 scale-x-[-1]" muted=""
+                playsinline="" preload="auto" style="object-fit: cover; width: 100%; height: 100%;">
+                <source src="video/Coracao-hero.mp4" type="video/mp4" />
+            </video>
+            <!-- Readability Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-r from-surface/90 via-surface/40 to-transparent -z-10"></div>
+
+            <div
+                class="max-w-container-max mx-auto w-full h-full px-margin grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center relative z-10 pt-20 md:pt-24 lg:pt-20">
+                <div class="lg:col-span-7 text-center lg:text-left">
+                    <span
+                        class="font-label-caps text-on-tertiary-container mb-4 block tracking-widest text-xs md:text-sm">CARDIOLOGIA
+                        CLÍNICA E PREVENTIVA</span>
+                    <h1 class="font-h1 text-3xl md:text-5xl lg:text-h1 text-primary mb-6 leading-tight">
+                        Cuidando do seu coração com precisão, experiência e atenção humana.
+                    </h1>
+                    <p class="font-body-lg text-base md:text-lg text-on-surface-variant mb-10 max-w-xl mx-auto lg:mx-0">
+                        Atendimento cardiológico completo com foco em prevenção, diagnóstico preciso e qualidade de
+                        vida. Sua saúde cardiovascular em mãos especialistas.
+                    </p>
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-4">
+                        <button
+                            class="w-full sm:w-auto bg-primary text-on-primary px-10 py-4 rounded-full font-label-caps shadow-lg hover:translate-y-[-2px] transition-transform">
+                            Agendar consulta
+                        </button>
+                        <button
+                            class="w-full sm:w-auto border border-primary text-primary px-10 py-4 rounded-full font-label-caps hover:bg-primary/5 transition-colors flex items-center justify-center gap-2">
+                            <span class="material-symbols-outlined"
+                                style="font-variation-settings: 'wght' 300">chat</span>
+                            Falar no WhatsApp
+                        </button>
+                    </div>
+                </div>
+                <div class="md:col-span-5 relative h-full flex items-end pb-20">
+                    <!-- Animated EKG line overlay -->
+                    <div class="w-64 opacity-20 pointer-events-none ml-auto">
+                        <svg class="w-full" viewbox="0 0 100 20">
+                            <polyline class="ekg-line" fill="none"
+                                points="0,10 10,10 15,2 20,18 25,10 40,10 45,5 50,15 55,10 70,10 75,0 80,20 85,10 100,10"
+                                stroke="#022448" stroke-width="1"></polyline>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Section -->
+        <section class="py-section-gap px-margin bg-white reveal-on-scroll" id="about">
+            <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+                <div class="relative">
+                    <img alt="Medical Consultation" class="rounded-xl shadow-lg w-full aspect-[4/5] object-cover"
+                        data-alt="A detailed shot of a cardiologist analyzing heart health data on a modern tablet in a brightly lit private practice room. The environment is serene and professionally decorated with high-quality materials and soft blue tones. The doctor's hands are focused, emphasizing precision, while the overall mood suggests deep clinical expertise and a humanized approach to patient data."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRip-7nsLNnu7g-SJg4Tc_VNkkw8SZPzPjDNgMbLhg_k5LXMCsKV7tvWa7v-n6NF4r4Na4p_cPQNHhKVr8h6zzrO2uk6O9vPwTwRH763c1NLfKtos2GT3d_kFhkcMjrwx8idUPccf_DLHeny1KDNSI9O6InPidp7D-HgCN4KsJ5O45l0MOd2Vmx-LuETjRY49zEG5wFjPGk3KOuWPr19LfmRk3NtIYa-pRTICKwGoyokvSBTUfQhB9mphsJRoXthNJUFWtQEOpovc" />
+                    <div
+                        class="absolute -bottom-6 -right-6 bg-primary p-8 rounded-lg shadow-xl text-on-primary max-w-[200px]">
+                        <p class="font-h3 text-h3 leading-none">15+</p>
+                        <p class="font-label-caps text-[10px] mt-2 opacity-80">ANOS DE EXPERIÊNCIA DEDICADOS À
+                            CARDIOLOGIA</p>
+                    </div>
+                </div>
+                <div>
+                    <span class="font-label-caps text-on-tertiary-container mb-4 block tracking-widest">SOBRE O
+                        ESPECIALISTA</span>
+                    <h2 class="font-h2 text-h2 text-primary mb-8 leading-tight">Experiência e cuidado em cada
+                        atendimento</h2>
+                    <p class="font-body-lg text-on-surface-variant mb-6 leading-relaxed">
+                        Nossa missão é oferecer uma abordagem integrada que une o que há de mais moderno em tecnologia
+                        diagnóstica a um olhar profundamente humano e atento.
+                    </p>
+                    <p class="font-body-md text-on-surface-variant mb-8 leading-relaxed">
+                        Formado pelas melhores instituições do país, com especialização focada em Cardiologia Preventiva
+                        e Arritmologia, o Dr. Silva acredita que o tratamento eficaz começa com a escuta ativa e a
+                        compreensão da rotina e dos objetivos de cada paciente.
+                    </p>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-center gap-3 text-primary">
+                            <span class="material-symbols-outlined text-[20px]">verified</span>
+                            <span class="font-body-md font-medium">Especialista pela Sociedade Brasileira de
+                                Cardiologia</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-primary">
+                            <span class="material-symbols-outlined text-[20px]">verified</span>
+                            <span class="font-body-md font-medium">Corpo clínico dos principais hospitais premium</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-primary">
+                            <span class="material-symbols-outlined text-[20px]">verified</span>
+                            <span class="font-body-md font-medium">Referência em Diagnósticos Complexos</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- Services Section (Bento Style) -->
+        <section class="py-section-gap px-margin bg-surface-container-low reveal-on-scroll" id="services">
+            <div class="max-w-container-max mx-auto">
+                <div class="text-center mb-20">
+                    <span
+                        class="font-label-caps text-on-tertiary-container mb-4 block tracking-widest">ESPECIALIDADES</span>
+                    <h2 class="font-h2 text-h2 text-primary">Atendimento cardiológico completo</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <!-- Large Service Card -->
+                    <div
+                        class="md:col-span-2 bg-white p-10 rounded-2xl shadow-[0px_10px_30px_rgba(30,58,95,0.04)] hover:shadow-[0px_15px_40px_rgba(30,58,95,0.08)] transition-all duration-500 border border-primary/5 group">
+                        <div
+                            class="w-16 h-16 bg-primary/5 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary group-hover:text-white transition-colors duration-500">
+                            <span class="material-symbols-outlined text-4xl">health_metrics</span>
+                        </div>
+                        <h3 class="font-h3 text-h3 text-primary mb-4">Check-up Preventivo</h3>
+                        <p class="font-body-md text-on-surface-variant leading-relaxed">Avaliação completa para
+                            prevenção de doenças
+                            silenciosas, garantindo que seu coração acompanhe seu ritmo de vida com segurança.</p>
+                    </div>
+                    <div
+                        class="bg-white p-8 rounded-xl shadow-[0px_4px_20px_rgba(30,58,95,0.05)] hover:shadow-xl transition-shadow border border-primary/5">
+                        <span
+                            class="material-symbols-outlined text-3xl text-on-tertiary-container mb-4">monitor_heart</span>
+                        <h3 class="font-body-lg font-bold text-primary mb-2">Arritmias</h3>
+                        <p class="font-body-md text-on-surface-variant text-sm">Diagnóstico e tratamento de alterações
+                            no ritmo cardíaco com tecnologia de ponta.</p>
+                    </div>
+                    <div
+                        class="bg-white p-8 rounded-xl shadow-[0px_4px_20px_rgba(30,58,95,0.05)] hover:shadow-xl transition-shadow border border-primary/5">
+                        <span
+                            class="material-symbols-outlined text-3xl text-on-tertiary-container mb-4">blood_pressure</span>
+                        <h3 class="font-body-lg font-bold text-primary mb-2">Hipertensão</h3>
+                        <p class="font-body-md text-on-surface-variant text-sm">Controle rigoroso e personalizado da
+                            pressão arterial para evitar complicações graves.</p>
+                    </div>
+                    <div
+                        class="bg-white p-8 rounded-xl shadow-[0px_4px_20px_rgba(30,58,95,0.05)] hover:shadow-xl transition-shadow border border-primary/5">
+                        <span
+                            class="material-symbols-outlined text-3xl text-on-tertiary-container mb-4">clinical_notes</span>
+                        <h3 class="font-body-lg font-bold text-primary mb-2">Pré-operatório</h3>
+                        <p class="font-body-md text-on-surface-variant text-sm">Avaliação criteriosa de risco cirúrgico
+                            para garantir sua segurança em procedimentos.</p>
+                    </div>
+                    <div
+                        class="bg-white p-8 rounded-xl shadow-[0px_4px_20px_rgba(30,58,95,0.05)] hover:shadow-xl transition-shadow border border-primary/5">
+                        <span
+                            class="material-symbols-outlined text-3xl text-on-tertiary-container mb-4">ecg_heart</span>
+                        <h3 class="font-body-lg font-bold text-primary mb-2">Exames</h3>
+                        <p class="font-body-md text-on-surface-variant text-sm">Realização de ECG, Holter e MAPA com
+                            laudos precisos e rápidos.</p>
+                    </div>
+                    <div class="md:col-span-2 bg-primary p-10 rounded-xl shadow-xl text-on-primary">
+                        <h3 class="font-h3 text-h3 mb-4">Acompanhamento Contínuo</h3>
+                        <p class="opacity-80 mb-6">Tratamento focado em Insuficiência Cardíaca e doenças crônicas com
+                            monitoramento próximo.</p>
+                        <button
+                            class="text-on-primary font-label-caps underline underline-offset-8 decoration-1 hover:opacity-70 transition-opacity">Ver
+                            todos os serviços</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Differentials -->
+        <section class="py-section-gap px-margin bg-white overflow-hidden reveal-on-scroll">
+            <div class="max-w-container-max mx-auto">
+                <div class="flex flex-col md:flex-row gap-20 items-center">
+                    <div class="w-full md:w-1/2">
+                        <span
+                            class="font-label-caps text-on-tertiary-container mb-4 block tracking-widest">DIFERENCIAIS</span>
+                        <h2 class="font-h2 text-h2 text-primary mb-12">Um atendimento focado em você</h2>
+                        <div class="space-y-12">
+                            <div class="flex gap-6">
+                                <div
+                                    class="flex-shrink-0 w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+                                    <span class="material-symbols-outlined">psychology</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-body-lg font-bold text-primary mb-2">Cuidado Humanizado</h4>
+                                    <p class="text-on-surface-variant">Consultas sem pressa, com tempo dedicado para
+                                        explicar cada detalhe do seu tratamento.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-6">
+                                <div
+                                    class="flex-shrink-0 w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+                                    <span class="material-symbols-outlined">biotech</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-body-lg font-bold text-primary mb-2">Tecnologia de Ponta</h4>
+                                    <p class="text-on-surface-variant">Equipamentos modernos para diagnósticos precisos
+                                        realizados dentro do próprio consultório.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-6">
+                                <div
+                                    class="flex-shrink-0 w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+                                    <span class="material-symbols-outlined">distance</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-body-lg font-bold text-primary mb-2">Localização Privilegiada</h4>
+                                    <p class="text-on-surface-variant">Espaço moderno e confortável com fácil acesso e
+                                        estacionamento privativo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 relative">
+                        <div
+                            class="aspect-square bg-surface-container rounded-full absolute -top-10 -right-20 w-full -z-10">
+                        </div>
+                        <img alt="Clinic Interior" class="rounded-2xl shadow-lg w-full h-[500px] object-cover"
+                            data-alt="A bright and airy medical reception area designed with premium minimalist aesthetics. The space features soft wooden accents, comfortable light gray furniture, and large windows that fill the room with natural light. The atmosphere is calm, clean, and welcoming, perfectly representing a high-end private medical practice that prioritizes patient comfort and tranquility."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSadOKdL_hxVy7RWnG5Y-ZVqxkmDjYhFekCAA-_GYH1WC3pgh0YGYZhCOQRxexBMyi4Z9nU52f3BdH7dzPefXOGfj7CNh4yaAzHCaCWSjcDMRpZ7Kgr3hzN2heRhyyXbGRRQLSaEolUcRJpWauFak2hgFJC4hnefZKiE1w90bnnbioMccaAjVW-yvgceV47A04ymD8gxZduYoapHTNKDEm44ZUzhTYjA02ErFbNe-5OtxJ84_1rSpNDznRiMOgl8Fn1Nlm3K6-TR8" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Testimonials -->
+        <section class="py-section-gap px-margin bg-surface-container-low reveal-on-scroll">
+            <div class="max-w-container-max mx-auto">
+                <div class="text-center mb-16">
+                    <span
+                        class="font-label-caps text-on-tertiary-container mb-4 block tracking-widest">DEPOIMENTOS</span>
+                    <h2 class="font-h2 text-h2 text-primary">O que os pacientes dizem</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div
+                        class="bg-white p-10 rounded-2xl shadow-[0px_10px_30px_rgba(30,58,95,0.04)] border border-primary/5 relative overflow-hidden group hover:translate-y-[-5px] transition-all duration-500">
+                        <div class="absolute top-0 right-0 p-4 opacity-10">
+                            <span class="material-symbols-outlined text-6xl">format_quote</span>
+                        </div>
+                        <div class="flex text-amber-400 mb-6">
+                            <span class="material-symbols-outlined fill-current"
+                                style="font-variation-settings: 'FILL' 1">star</span>
+                            <span class="material-symbols-outlined fill-current"
+                                style="font-variation-settings: 'FILL' 1">star</span>
+                            <span class="material-symbols-outlined fill-current"
+                                style="font-variation-settings: 'FILL' 1">star</span>
+                            <span class="material-symbols-outlined fill-current"
+                                style="font-variation-settings: 'FILL' 1">star</span>
+                            <span class="material-symbols-outlined fill-current"
+                                style="font-variation-settings: 'FILL' 1">star</span>
+                        </div>
+                        <p class="font-body-md text-on-surface-variant mb-8 italic leading-relaxed">"O melhor
+                            cardiologista que já consultei. Extremamente atencioso e explica tudo de forma muito clara.
+                            Me sinto muito mais seguro agora."</p>
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">
+                                RA</div>
+                            <div class="font-label-caps text-primary tracking-wider text-sm">ROBERTO ALMEIDA</div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl border border-primary/5">
+                        <div class="flex text-on-tertiary-container mb-4">
+                            <span class="material-symbols-outlined fill-current"
+                                style="font-variation-settings: 'FILL' 1">star</span>
+                            <span class="material-symbols-outlined fill-current"
+                                style="font-variation-settings: 'FILL' 1">star</span>
+                            <span class="material-symbols-outlined fill-current"
+                                style="font-variation-settings: 'FILL' 1">star</span>
+                            <span class="material-symbols-outlined fill-current"
+                                style="font-variation-settings: 'FILL' 1">star</span>
+                            <span class="material-symbols-outlined fill-current"
+                                style="font-variation-settings: 'FILL' 1">star</span>
+                        </div>
+                        <p class="font-body-md text-on-surface-variant mb-6 italic">"A clínica é impecável e o
+                            atendimento é de altíssimo nível. O acompanhamento do meu tratamento de hipertensão tem sido
+                            excelente."</p>
+                        <div class="font-label-caps text-primary">MARIA HELENA SOUZA</div>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl border border-primary/5">
+                        <div class="flex text-on-tertiary-container mb-4">
+                            <span class="material-symbols-outlined fill-current"
+                                style="font-variation-settings: 'FILL' 1">star</span>
+                            <span class="material-symbols-outlined fill-current"
+                                style="font-variation-settings: 'FILL' 1">star</span>
+                            <span class="material-symbols-outlined fill-current"
+                                style="font-variation-settings: 'FILL' 1">star</span>
+                            <span class="material-symbols-outlined fill-current"
+                                style="font-variation-settings: 'FILL' 1">star</span>
+                            <span class="material-symbols-outlined fill-current"
+                                style="font-variation-settings: 'FILL' 1">star</span>
+                        </div>
+                        <p class="font-body-md text-on-surface-variant mb-6 italic">"Fiz meu check-up completo e a
+                            avaliação pré-operatória. Precisão e rapidez nos exames e um cuidado humano raro hoje em
+                            dia."</p>
+                        <div class="font-label-caps text-primary">CARLOS EDUARDO</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Anatomy Section (Interactive) -->
+        <section id="anatomy" class="py-section-gap px-margin bg-white overflow-hidden reveal-on-scroll">
+            <div class="max-w-container-max mx-auto text-center">
+                <span class="font-label-caps text-on-tertiary-container mb-4 block tracking-widest">INTERATIVO</span>
+                <h2 class="font-h2 text-h2 text-primary mb-6">Anatomia do Coração em 3D</h2>
+                <p class="text-on-surface-variant mb-12 max-w-2xl mx-auto">Explore a complexidade do motor da vida.
+                    Clique para girar o modelo.</p>
+
+                <div id="anatomy-container" class="relative max-w-4xl mx-auto overflow-hidden rounded-2xl shadow-2xl">
+                    <video id="anatomy-video" class="w-full scale-[1.08] origin-top pointer-events-none" muted=""
+                        playsinline="" preload="auto">
+                        <source src="video/coracao-girando.mp4" type="video/mp4" />
+                    </video>
+                </div>
+
+                <!-- Rotation Controls -->
+                <div class="mt-8 flex justify-center gap-6">
+                    <button id="rotate-left"
+                        class="bg-primary/5 hover:bg-primary hover:text-white text-primary p-4 rounded-full transition-all duration-300 shadow-sm flex items-center gap-2 font-label-caps text-xs">
+                        <span class="material-symbols-outlined">rotate_left</span>
+                        GIRAR ESQUERDA
+                    </button>
+                    <button id="rotate-right"
+                        class="bg-primary/5 hover:bg-primary hover:text-white text-primary p-4 rounded-full transition-all duration-300 shadow-sm flex items-center gap-2 font-label-caps text-xs">
+                        GIRAR DIREITA
+                        <span class="material-symbols-outlined">rotate_right</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- Mid-page CTA with Video Background -->
+        <section id="cta-section" class="relative py-section-gap px-margin text-on-primary overflow-hidden">
+            <!-- Background Video -->
+            <video id="cta-video" class="absolute inset-0 w-full h-full object-cover -z-20" muted="" playsinline=""
+                preload="auto">
+                <source src="video/Coracao-seção.mp4" type="video/mp4" />
+            </video>
+            <!-- Overlay for readability -->
+            <div class="absolute inset-0 bg-primary/70 -z-10"></div>
+
+            <div class="max-w-container-max mx-auto text-center relative z-10">
+                <h2 class="font-h2 text-h1 mb-6">Prevenir hoje é cuidar do seu futuro.</h2>
+                <p class="font-body-lg mb-10 opacity-90 max-w-2xl mx-auto">Sua saúde cardiovascular não pode esperar.
+                    Agende agora uma avaliação completa com quem é referência na área.</p>
+                <button
+                    class="bg-on-primary text-primary px-12 py-5 rounded-full font-label-caps shadow-xl hover:bg-surface-container-lowest transition-colors">
+                    Agende sua consulta
+                </button>
+            </div>
+        </section>
+        <!-- Contact / Map Section -->
+        <section id="contact" class="py-section-gap px-margin bg-surface-container-low reveal-on-scroll">
+            <div class="max-w-container-max mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+                    <div>
+                        <span
+                            class="font-label-caps text-on-tertiary-container mb-4 block tracking-widest">CONTATO</span>
+                        <h2 class="font-h2 text-h2 text-primary mb-12">Estamos prontos para cuidar do seu coração</h2>
+
+                        <div class="space-y-8">
+                            <div
+                                class="bg-white p-8 rounded-2xl shadow-sm border border-primary/5 flex gap-6 hover:shadow-md transition-shadow">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-primary/5 flex items-center justify-center text-primary">
+                                    <span class="material-symbols-outlined">location_on</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-body-lg font-bold text-primary mb-1">Localização</h4>
+                                    <p class="text-on-surface-variant">Av. das Nações Unidas, 12901<br>Brooklin Novo -
+                                        São Paulo, SP</p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="bg-white p-8 rounded-2xl shadow-sm border border-primary/5 flex gap-6 hover:shadow-md transition-shadow">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-primary/5 flex items-center justify-center text-primary">
+                                    <span class="material-symbols-outlined">call</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-body-lg font-bold text-primary mb-1">Telefone</h4>
+                                    <p class="text-on-surface-variant">(11) 3456-7890<br>(11) 99876-5432</p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="bg-white p-8 rounded-2xl shadow-sm border border-primary/5 flex gap-6 hover:shadow-md transition-shadow">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-primary/5 flex items-center justify-center text-primary">
+                                    <span class="material-symbols-outlined">schedule</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-primary">Horário de Atendimento</h4>
+                                    <p class="text-on-surface-variant">Segunda a Sexta: 08:00 – 19:00<br />Sábados:
+                                        08:00 – 12:00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="h-[400px] lg:h-auto min-h-[500px] relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white group">
+                        <img alt="Map Location"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3YB_MG5DscuQZhka6VK9pMHCaAJdhWQqLtBdlFqXRiZcX8GsQ_Ldv9jx5y9NXE4kQ6sqPTKC-9cjQzOVb__gSugEvUKvyAs7KHyjivSzxhDuQcpMc65U8rrRpsKKaD5qewkx1UMoNy65Aq738tzvhZqGNmtmGuWAeKUhCeU2QUiNhVa9361xcMaRqTsROtBPysxfpIOb6q7OId1sR3atZ83XZuwSMtUkIN_llQrRwffoVzP14ycx4H55uSDIxJEpeUQ7_Bjr9abs" />
+                        <div class="absolute inset-0 bg-primary/10 pointer-events-none"></div>
+                        <div
+                            class="absolute bottom-8 left-8 right-8 bg-white/95 backdrop-blur-md p-8 rounded-2xl shadow-xl">
+                            <p class="text-primary font-bold mb-2">Edifício Life Health</p>
+                            <p class="text-on-surface-variant text-sm mb-6">Localização privilegiada com estacionamento
+                                privativo.</p>
+                            <button
+                                class="w-full bg-primary text-on-primary py-4 rounded-xl font-label-caps text-xs tracking-widest hover:opacity-90 transition-opacity shadow-lg">ABRIR
+                                NO GOOGLE MAPS</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Back to Top Button -->
+        <button id="back-to-top"
+            class="fixed bottom-8 right-8 bg-primary text-on-primary w-12 h-12 rounded-full shadow-2xl z-40 translate-y-24 transition-all duration-500 hover:scale-110 flex items-center justify-center group">
+            <span class="material-symbols-outlined group-hover:-translate-y-1 transition-transform">arrow_upward</span>
+        </button>
+    </main>
+    <!-- Footer -->
+    <footer class="w-full py-section-gap bg-secondary-fixed text-primary">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin max-w-container-max mx-auto">
+            <div class="md:col-span-1">
+                <div class="font-h3 text-h3 text-primary mb-6">CardioVitality</div>
+                <p class="text-on-secondary-fixed-variant text-sm pr-6">Excelência em cardiologia clínica e preventiva.
+                    Cuidando da saúde do seu coração com precisão científica e calor humano.</p>
+            </div>
+            <div>
+                <h4 class="font-label-caps mb-6 text-primary">Institucional</h4>
+                <ul class="space-y-3">
+                    <li><a class="text-on-secondary-fixed-variant hover:text-primary transition-colors duration-200"
+                            href="#">Sobre Nós</a></li>
+                    <li><a class="text-on-secondary-fixed-variant hover:text-primary transition-colors duration-200"
+                            href="#">Equipe Médica</a></li>
+                    <li><a class="text-on-secondary-fixed-variant hover:text-primary transition-colors duration-200"
+                            href="#">Infraestrutura</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-label-caps mb-6 text-primary">Serviços</h4>
+                <ul class="space-y-3">
+                    <li><a class="text-on-secondary-fixed-variant hover:text-primary transition-colors duration-200"
+                            href="#">Check-up</a></li>
+                    <li><a class="text-on-secondary-fixed-variant hover:text-primary transition-colors duration-200"
+                            href="#">Exames</a></li>
+                    <li><a class="text-on-secondary-fixed-variant hover:text-primary transition-colors duration-200"
+                            href="#">Tratamentos</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-label-caps mb-6 text-primary">Suporte</h4>
+                <ul class="space-y-3">
+                    <li><a class="text-on-secondary-fixed-variant hover:text-primary transition-colors duration-200"
+                            href="#">Privacy Policy</a></li>
+                    <li><a class="text-on-secondary-fixed-variant hover:text-primary transition-colors duration-200"
+                            href="#">Terms of Service</a></li>
+                    <li><a class="text-on-secondary-fixed-variant hover:text-primary transition-colors duration-200"
+                            href="#">Patient Rights</a></li>
+                    <li><a class="text-on-secondary-fixed-variant hover:text-primary transition-colors duration-200"
+                            href="#">Emergency Care</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-container-max mx-auto px-margin mt-16 pt-8 border-t border-primary/10">
+            <p class="text-center text-on-secondary-fixed-variant text-[12px]">
+                © 2024 CardioVitality Premium Care. All rights reserved. CRM-SP 123456 | RQE 78910
+            </p>
+        </div>
+    </footer>
+    <script>
+        // --- Hero Video Logic ---
+        const heroVideo = document.getElementById('hero-video');
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                heroVideo.play().catch(error => console.log("Hero autoplay prevented", error));
+            }, 1000);
+        });
+        heroVideo.loop = false;
+
+        // --- CTA Video Standard Loop Logic ---
+        const ctaVideo = document.getElementById('cta-video');
+        const ctaStart = 1.0;
+
+        // Loop manual para respeitar o início em 1.0s sem travar
+        ctaVideo.addEventListener('ended', () => {
+            ctaVideo.currentTime = ctaStart;
+            ctaVideo.play();
+        });
+
+        // Jump to start point on first play
+        ctaVideo.addEventListener('play', () => {
+            if (ctaVideo.currentTime < ctaStart) {
+                ctaVideo.currentTime = ctaStart;
+            }
+        }, { once: false });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    ctaVideo.play();
+                } else {
+                    ctaVideo.pause();
+                }
+            });
+        }, { threshold: 0.1 });
+
+        observer.observe(document.getElementById('cta-section'));
+
+        // --- Anatomy Video Button Control Logic ---
+        const anatomyVideo = document.getElementById('anatomy-video');
+        const rotateLeftBtn = document.getElementById('rotate-left');
+        const rotateRightBtn = document.getElementById('rotate-right');
+        const anatomyLimit = 6.0;
+
+        function seekAnatomy(seconds) {
+            let newTime = anatomyVideo.currentTime + seconds;
+
+            // Lógica de loop (0 a 6s)
+            if (newTime >= anatomyLimit) newTime = 0;
+            if (newTime < 0) newTime = anatomyLimit - 0.1;
+
+            anatomyVideo.currentTime = newTime;
+        }
+
+        rotateLeftBtn.addEventListener('click', () => seekAnatomy(-1.0));
+        rotateRightBtn.addEventListener('click', () => seekAnatomy(1.0));
+
+        // Iniciar no segundo 0
+        window.addEventListener('load', () => {
+            anatomyVideo.currentTime = 0;
+        });
+
+        // --- Reveal Animations Logic ---
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => revealObserver.observe(el));
+
+        // --- Mobile Menu Logic ---
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+
+        function toggleMenu() {
+            if (mobileMenu.classList.contains('translate-x-full')) {
+                mobileMenu.classList.remove('translate-x-full');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.add('translate-x-full');
+                document.body.style.overflow = '';
+            }
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+
+        // --- Back to Top Logic ---
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTopBtn.classList.remove('translate-y-24');
+            } else {
+                backToTopBtn.classList.add('translate-y-24');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+
+</html>

@@ -142,6 +142,38 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Nav Link Active & Hover States */
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:active {
+            transform: scale(0.95);
+            opacity: 0.8;
+        }
+
+        /* Smooth reveal for the underline */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary, #022448);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link.active-link::after {
+            width: 100%;
+        }
+
+        .nav-link.active-link {
+            color: #022448 !important;
+            font-weight: 700;
+        }
     </style>
 </head>
 
@@ -152,16 +184,16 @@
             <div class="font-h2 text-h3 md:text-h3 text-primary tracking-tight">CardioVitality</div>
 
             <!-- Desktop Nav -->
-            <nav class="hidden lg:flex gap-8 items-center">
-                <a class="font-body-md text-primary font-bold border-b-2 border-primary pb-1 transition-all duration-300"
+            <nav class="hidden lg:flex gap-8 items-center" id="desktop-nav">
+                <a class="nav-link font-body-md text-primary font-bold border-b-2 border-primary pb-1 transition-all duration-300"
                     href="#">Início</a>
-                <a class="font-body-md text-on-surface-variant hover:text-primary transition-colors duration-300"
+                <a class="nav-link font-body-md text-on-surface-variant hover:text-primary transition-colors duration-300"
                     href="#services">Especialidades</a>
-                <a class="font-body-md text-on-surface-variant hover:text-primary transition-colors duration-300"
+                <a class="nav-link font-body-md text-on-surface-variant hover:text-primary transition-colors duration-300"
                     href="#about">O Especialista</a>
-                <a class="font-body-md text-on-surface-variant hover:text-primary transition-colors duration-300"
+                <a class="nav-link font-body-md text-on-surface-variant hover:text-primary transition-colors duration-300"
                     href="#anatomy">Anatomia</a>
-                <a class="font-body-md text-on-surface-variant hover:text-primary transition-colors duration-300"
+                <a class="nav-link font-body-md text-on-surface-variant hover:text-primary transition-colors duration-300"
                     href="#contact">Contato</a>
             </nav>
 
@@ -171,7 +203,7 @@
                     Book Appointment
                 </button>
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="lg:hidden text-primary p-2">
+                <button id="mobile-menu-btn" class="lg:hidden text-primary p-2 hover:bg-primary/5 active:scale-95 rounded-lg transition-all">
                     <span class="material-symbols-outlined text-3xl">menu</span>
                 </button>
             </div>
@@ -772,6 +804,48 @@
 
         backToTopBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // --- Active Link Logic (ScrollSpy) ---
+        const navLinks = document.querySelectorAll('.nav-link');
+        const scrollSections = document.querySelectorAll('section[id]');
+
+        function updateNav() {
+            let current = "";
+            const scrollPos = window.scrollY + 100;
+
+            scrollSections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            // Special case for 'Início' when at top
+            if (window.scrollY < 200) current = "";
+
+            navLinks.forEach((link) => {
+                link.classList.remove('active-link', 'text-primary', 'font-bold', 'border-b-2', 'border-primary', 'pb-1');
+                link.classList.add('text-on-surface-variant');
+
+                const href = link.getAttribute('href');
+                if ((href === '#' && current === "") || (href === '#' + current)) {
+                    link.classList.add('active-link');
+                    link.classList.remove('text-on-surface-variant');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateNav);
+        window.addEventListener('load', updateNav);
+
+        // Click handler for immediate feedback
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.forEach(l => l.classList.remove('active-link'));
+                this.classList.add('active-link');
+            });
         });
     </script>
 </body>

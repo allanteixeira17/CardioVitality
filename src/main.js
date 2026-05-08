@@ -51,11 +51,11 @@ if (anatomyVideo && rotateLeftBtn && rotateRightBtn) {
     function seekAnatomy(seconds) {
         anatomyVideo.pause(); // Para a rotação automática ao interagir
         let newTime = anatomyVideo.currentTime + seconds;
-        
+
         // Loop manual do tempo para garantir rotação infinita
         if (newTime >= anatomyLimit) newTime = 0.1;
         if (newTime <= 0) newTime = anatomyLimit - 0.1;
-        
+
         anatomyVideo.currentTime = newTime;
     }
 
@@ -70,7 +70,7 @@ if (anatomyVideo && rotateLeftBtn && rotateRightBtn) {
     let isDragging = false;
     let startX = 0;
     const anatomyContainer = document.getElementById('anatomy-container');
-    
+
     if (anatomyContainer) {
         anatomyContainer.addEventListener('mousedown', (e) => {
             isDragging = true;
@@ -202,7 +202,7 @@ if (chatToggle && chatContainer) {
         INFORMAÇÕES ESPECÍFICAS DA CLÍNICA (Siga rigorosamente):
         - Contatos: Telefone (11) 3456-7890 | WhatsApp (11) 99876-5432.
         - Convênios Aceitos: SulAmérica Saúde, Care Plus, Bradesco Saúde, Porto Seguro Saúde, Amil Saúde e Unimed.
-        - Valor da Consulta Particular: R$ 350,00.
+        - Valor da Consulta Particular: R$ 350,00, aceitamos cartão de crédito e débito, pix e dinheiro.
         - Horários: Segunda a Sexta (08:00 - 19:00) e Sábados (08:00 - 12:00).
         - Local: Edifício Life Health, Brooklin Novo, SP (Av. das Nações Unidas, 12901).
         `;
@@ -316,7 +316,7 @@ function updateNav() {
 window.addEventListener('scroll', updateNav);
 window.addEventListener('load', updateNav);
 navLinks.forEach(link => {
-    link.addEventListener('click', function() {
+    link.addEventListener('click', function () {
         navLinks.forEach(l => l.classList.remove('active-link'));
         this.classList.add('active-link');
     });

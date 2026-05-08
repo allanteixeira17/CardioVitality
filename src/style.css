@@ -269,3 +269,9 @@
         right: 20px;
     }
 }
+
+/* Anatomy Video Cropping to hide "VEO" */
+#anatomy-video {
+    transform: scale(1.2) translateY(-4%);
+    transform-origin: center top;
+}

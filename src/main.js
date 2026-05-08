@@ -49,15 +49,23 @@ const anatomyLimit = 6.0;
 
 if (anatomyVideo && rotateLeftBtn && rotateRightBtn) {
     function seekAnatomy(seconds) {
-        anatomyVideo.pause(); 
+        anatomyVideo.pause(); // Para a rotação automática ao interagir
         let newTime = anatomyVideo.currentTime + seconds;
-        if (newTime >= anatomyLimit) newTime = 0;
-        if (newTime < 0) newTime = anatomyLimit - 0.1;
+        
+        // Loop manual do tempo para garantir rotação infinita
+        if (newTime >= anatomyLimit) newTime = 0.1;
+        if (newTime <= 0) newTime = anatomyLimit - 0.1;
+        
         anatomyVideo.currentTime = newTime;
     }
 
-    rotateLeftBtn.addEventListener('click', () => seekAnatomy(-0.5));
-    rotateRightBtn.addEventListener('click', () => seekAnatomy(0.5));
+    rotateLeftBtn.addEventListener('click', () => {
+        seekAnatomy(-0.4); // Salto maior para feedback visual claro
+    });
+
+    rotateRightBtn.addEventListener('click', () => {
+        seekAnatomy(0.4);
+    });
 
     let isDragging = false;
     let startX = 0;

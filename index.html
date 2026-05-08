@@ -101,80 +101,7 @@
             },
         }
     </script>
-    <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
-        }
-
-        .ekg-line {
-            stroke-dasharray: 1000;
-            stroke-dashoffset: 1000;
-            animation: dash 5s linear infinite;
-        }
-
-        @keyframes dash {
-            to {
-                stroke-dashoffset: 0;
-            }
-        }
-
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 24px;
-        }
-
-        .nav-blur {
-            backdrop-filter: blur(20px) saturate(180%);
-            background-color: rgba(255, 255, 255, 0.35);
-            /* Ultra transparente e vítreo */
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        /* Reveal Animation Styles */
-        .reveal-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        .reveal-on-scroll.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Nav Link Active & Hover States */
-        .nav-link {
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .nav-link:active {
-            transform: scale(0.95);
-            opacity: 0.8;
-        }
-
-        /* Smooth reveal for the underline */
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary, #022448);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link.active-link::after {
-            width: 100%;
-        }
-
-        .nav-link.active-link {
-            color: #022448 !important;
-            font-weight: 700;
-        }
-    </style>
+    <link rel="stylesheet" href="/src/style.css">
 </head>
 
 <body class="bg-background text-on-surface font-body-md overflow-x-hidden">
@@ -239,8 +166,8 @@
         <!-- Hero Section -->
         <section id="hero-section" class="relative h-screen w-full overflow-hidden">
             <!-- Background Video -->
-            <video id="hero-video" class="absolute inset-0 w-full h-full object-cover -z-20 scale-x-[-1]" muted=""
-                playsinline="" preload="auto" style="object-fit: cover; width: 100%; height: 100%;">
+            <video id="hero-video" class="absolute inset-0 w-full h-full object-cover -z-20 scale-x-[-1]" 
+                muted autoplay playsinline preload="auto" style="object-fit: cover; width: 100%; height: 100%;">
                 <source src="video/Coracao-hero.mp4" type="video/mp4" />
             </video>
             <!-- Readability Overlay -->
@@ -532,9 +459,9 @@
                 <p class="text-on-surface-variant mb-12 max-w-2xl mx-auto">Explore a complexidade do motor da vida.
                     Clique para girar o modelo.</p>
 
-                <div id="anatomy-container" class="relative max-w-4xl mx-auto overflow-hidden rounded-2xl shadow-2xl">
-                    <video id="anatomy-video" class="w-full scale-[1.08] origin-top pointer-events-none" muted=""
-                        playsinline="" preload="auto">
+                <div id="anatomy-container" class="relative max-w-4xl mx-auto overflow-hidden rounded-2xl shadow-2xl bg-slate-900 aspect-video flex items-center justify-center">
+                    <video id="anatomy-video" class="w-full h-full object-cover pointer-events-none" 
+                        muted autoplay playsinline loop preload="auto">
                         <source src="video/coracao-girando.mp4" type="video/mp4" />
                     </video>
                 </div>
@@ -557,8 +484,8 @@
         <!-- Mid-page CTA with Video Background -->
         <section id="cta-section" class="relative py-section-gap px-margin text-on-primary overflow-hidden">
             <!-- Background Video -->
-            <video id="cta-video" class="absolute inset-0 w-full h-full object-cover -z-20" muted="" playsinline=""
-                preload="auto">
+            <video id="cta-video" class="absolute inset-0 w-full h-full object-cover -z-20" 
+                muted autoplay playsinline loop preload="auto">
                 <source src="video/Coracao-seção.mp4" type="video/mp4" />
             </video>
             <!-- Overlay for readability -->
@@ -646,9 +573,45 @@
 
         <!-- Back to Top Button -->
         <button id="back-to-top"
-            class="fixed bottom-8 right-8 bg-primary text-on-primary w-12 h-12 rounded-full shadow-2xl z-40 translate-y-24 transition-all duration-500 hover:scale-110 flex items-center justify-center group">
+            class="fixed bottom-8 right-[100px] bg-white text-primary w-12 h-12 rounded-full shadow-xl z-40 translate-y-24 transition-all duration-500 hover:scale-110 flex items-center justify-center group border border-primary/10">
             <span class="material-symbols-outlined group-hover:-translate-y-1 transition-transform">arrow_upward</span>
         </button>
+
+        <!-- AI Chat Bot -->
+        <div id="ai-chat-toggle" class="pulse-animation">
+            <span class="material-symbols-outlined chat-icon text-3xl">smart_toy</span>
+            <span class="material-symbols-outlined close-icon text-3xl">close</span>
+        </div>
+
+        <div id="ai-chat-container">
+            <div id="ai-chat-header">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white">medical_services</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm leading-tight">CardioAssist AI</h4>
+                        <p class="text-[10px] opacity-80"><span class="bot-status"></span>Online | Especialista Virtual</p>
+                    </div>
+                </div>
+                <button id="close-chat" class="hover:rotate-90 transition-transform">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            
+            <div id="ai-chat-messages">
+                <div class="chat-message bot-message">
+                    Olá! Sou o CardioAssist, seu assistente virtual. Como posso ajudar com suas dúvidas sobre saúde do coração hoje?
+                </div>
+            </div>
+
+            <div id="ai-chat-input-container">
+                <input type="text" id="ai-chat-input" placeholder="Digite sua dúvida aqui..." autocomplete="off">
+                <button id="ai-chat-send">
+                    <span class="material-symbols-outlined">send</span>
+                </button>
+            </div>
+        </div>
     </main>
     <!-- Footer -->
     <footer class="w-full py-section-gap bg-secondary-fixed text-primary">
@@ -700,154 +663,7 @@
             </p>
         </div>
     </footer>
-    <script>
-        // --- Hero Video Logic ---
-        const heroVideo = document.getElementById('hero-video');
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                heroVideo.play().catch(error => console.log("Hero autoplay prevented", error));
-            }, 1000);
-        });
-        heroVideo.loop = false;
-
-        // --- CTA Video Standard Loop Logic ---
-        const ctaVideo = document.getElementById('cta-video');
-        const ctaStart = 1.0;
-
-        // Loop manual para respeitar o início em 1.0s sem travar
-        ctaVideo.addEventListener('ended', () => {
-            ctaVideo.currentTime = ctaStart;
-            ctaVideo.play();
-        });
-
-        // Jump to start point on first play
-        ctaVideo.addEventListener('play', () => {
-            if (ctaVideo.currentTime < ctaStart) {
-                ctaVideo.currentTime = ctaStart;
-            }
-        }, { once: false });
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    ctaVideo.play();
-                } else {
-                    ctaVideo.pause();
-                }
-            });
-        }, { threshold: 0.1 });
-
-        observer.observe(document.getElementById('cta-section'));
-
-        // --- Anatomy Video Button Control Logic ---
-        const anatomyVideo = document.getElementById('anatomy-video');
-        const rotateLeftBtn = document.getElementById('rotate-left');
-        const rotateRightBtn = document.getElementById('rotate-right');
-        const anatomyLimit = 6.0;
-
-        function seekAnatomy(seconds) {
-            let newTime = anatomyVideo.currentTime + seconds;
-
-            // Lógica de loop (0 a 6s)
-            if (newTime >= anatomyLimit) newTime = 0;
-            if (newTime < 0) newTime = anatomyLimit - 0.1;
-
-            anatomyVideo.currentTime = newTime;
-        }
-
-        rotateLeftBtn.addEventListener('click', () => seekAnatomy(-1.0));
-        rotateRightBtn.addEventListener('click', () => seekAnatomy(1.0));
-
-        // Iniciar no segundo 0
-        window.addEventListener('load', () => {
-            anatomyVideo.currentTime = 0;
-        });
-
-        // --- Reveal Animations Logic ---
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, { threshold: 0.15 });
-
-        document.querySelectorAll('.reveal-on-scroll').forEach(el => revealObserver.observe(el));
-
-        // --- Mobile Menu Logic ---
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const closeMenuBtn = document.getElementById('close-menu-btn');
-
-        function toggleMenu() {
-            if (mobileMenu.classList.contains('translate-x-full')) {
-                mobileMenu.classList.remove('translate-x-full');
-                document.body.style.overflow = 'hidden';
-            } else {
-                mobileMenu.classList.add('translate-x-full');
-                document.body.style.overflow = '';
-            }
-        }
-
-        mobileMenuBtn.addEventListener('click', toggleMenu);
-        closeMenuBtn.addEventListener('click', toggleMenu);
-
-        // --- Back to Top Logic ---
-        const backToTopBtn = document.getElementById('back-to-top');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 500) {
-                backToTopBtn.classList.remove('translate-y-24');
-            } else {
-                backToTopBtn.classList.add('translate-y-24');
-            }
-        });
-
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // --- Active Link Logic (ScrollSpy) ---
-        const navLinks = document.querySelectorAll('.nav-link');
-        const scrollSections = document.querySelectorAll('section[id]');
-
-        function updateNav() {
-            let current = "";
-            const scrollPos = window.scrollY + 100;
-
-            scrollSections.forEach((section) => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-                    current = section.getAttribute("id");
-                }
-            });
-
-            // Special case for 'Início' when at top
-            if (window.scrollY < 200) current = "";
-
-            navLinks.forEach((link) => {
-                link.classList.remove('active-link', 'text-primary', 'font-bold', 'border-b-2', 'border-primary', 'pb-1');
-                link.classList.add('text-on-surface-variant');
-
-                const href = link.getAttribute('href');
-                if ((href === '#' && current === "") || (href === '#' + current)) {
-                    link.classList.add('active-link');
-                    link.classList.remove('text-on-surface-variant');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', updateNav);
-        window.addEventListener('load', updateNav);
-
-        // Click handler for immediate feedback
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                navLinks.forEach(l => l.classList.remove('active-link'));
-                this.classList.add('active-link');
-            });
-        });
-    </script>
+    <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>

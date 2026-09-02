@@ -1,3 +1,37 @@
+/* Top Marquee Notice */
+.marquee-bar {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--primary, #022448);
+    color: #fff;
+    padding: 8px 0;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    z-index: 60;
+}
+
+.marquee-track {
+    display: inline-flex;
+    white-space: nowrap;
+    animation: marquee 30s linear infinite;
+    will-change: transform;
+}
+
+.marquee-content {
+    padding-right: 60px;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
 /* Global Styles from index.html */
 .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;

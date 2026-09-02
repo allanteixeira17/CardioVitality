@@ -94,3 +94,5 @@ web_modules/
 dist
 dist-ssr
 *.local
+
+.agents

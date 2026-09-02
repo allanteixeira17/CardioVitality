@@ -1,0 +1,117 @@
+Briefing para Criação de Site — Clube de Tiro & Instrução
+Dados Iniciais & Serviços
+Qual é o seu nome e o nome da sua empresa para incluirmos no site?
+
+Comandante Roberto Silva — Apex Clube & Academia de Tiro
+
+Quais produtos ou serviços sua empresa oferece?
+
+Filiações para atiradores esportivos e caçadores, cursos de formação e aperfeiçoamento de tiro (básico ao avançado), treinamentos VIP individuais, processos de habitualidade, locação de estande e armamentos, e assessoria completa para obtenção e renovação de CR (Certificado de Registro) e posse/porte de arma.
+
+Objetivo & Estrutura
+Objetivo do Site
+
+Captar novos filiados para o clube, vender cursos de tiro, agendar experiências de tiro/aulas experimentais e posicionar a empresa como autoridade e referência em segurança e instrução técnica na região.
+
+Seções do Site
+
+Home, Sobre Nós (Nossa História & Instrutores), Planos de Filiação, Cursos & Treinamentos, Estrutura do Estande, Assessoria Documental, Galeria de Fotos/Vídeos, Blog/Notícias e Contato.
+
+Conteúdo & Identidade
+Você tem textos prontos ou descrições sobre seus produtos/serviços?
+
+Instrutores Credenciados: Nossa equipe é formada por instrutores credenciados pela Polícia Federal e Exército Brasileiro, garantindo um aprendizado pautado na máxima segurança, precisão e responsabilidade.
+
+Planos de Filiação: Oferecemos planos anuais com acesso ilimitado às pistas de tiro, descontos em munições/alvos e suporte completo no controle de habitualidades.
+
+Cursos: Do nível Básico (primeiro contato seguro com armas de fogo) ao Avançado (Tiro Defensivo, Combat Pistol e Low Light).
+
+Descrição sobre a empresa
+
+A Apex é um centro de treinamento tático e clube de tiro voltado para quem busca excelência, segurança e um ambiente familiar. Unimos estrutura moderna, pistas automatizadas e instrutores com vasta experiência militar e policial para entregar a melhor experiência de tiro da região.
+
+Você tem um slogan ou frase de impacto que gostaria de usar no site?
+
+"Segurança, Precisão e Responsabilidade. O seu ponto de apoio na instrução tática."
+
+Políticas de Privacidade, trocas ou devoluções
+
+Seguimos os termos padrão da LGPD para coleta de dados de cadastro. Para os cursos, aceitamos reagendamento com até 48h de antecedência. Em caso de cancelamento definitivo antes das 48h, reembolsamos 80% do valor.
+
+Quais páginas o site precisa ter?
+
+Página Inicial (Home)
+
+Sobre Nós (Institucional)
+
+Planos de Filiação
+
+Cursos e Treinamentos
+
+Assessoria CAC / Documentação
+
+Galeria da Estrutura
+
+Contato & Localização
+
+Design & Funcionalidades
+Inspirações
+
+Gostamos de um estilo sóbrio, tático e moderno (fundo escuro, detalhes em dourado/laranja e cinza grafite).
+
+Inspiração 1: CTT CBC (Pela autoridade e clareza dos cursos)
+
+Inspiração 2: Target Club (Pela facilidade de ver os planos)
+
+Inspiração 3: Não tenho uma terceira no momento, confio no seu feeling de design!
+
+Há alguma funcionalidade específica que você deseja no site?
+
+Botão flutuante do WhatsApp em todas as páginas.
+
+Sistema de agendamento online para aulas experimentais/locação de pista.
+
+Formulário específico para solicitação de cotação de assessoria documental.
+
+Tabela explicativa e comparativa dos Planos de Filiação.
+
+Fotos e material visuais que serão usados
+
+Sim, temos fotos profissionais em alta resolução do estande, das armas, dos instrutores em ação e do nosso logotipo em vetor (.EPS/.PNG). Vou enviar para o e-mail informado.
+
+Contato & Redes Sociais
+Telefones para contato: (84) 3222-0000
+
+WhatsApp para contato: (84) 99999-0000
+
+E-mail para contato: contato@apexclubedetiro.com.br
+
+Links das redes sociais:
+
+Instagram: @apexclubedetiro
+
+YouTube: /apexclubedetiro
+
+Facebook: /apexclubedetiro
+
+SEO & Infraestrutura
+Se você fosse procurar sua empresa no Google, quais palavras usaria?
+
+Clube de tiro na minha região; Curso de tiro defensivo; Como tirar CR de atirador; Instrutor de armamento e tiro credenciado; Estande de tiro fechado.
+
+Você registrou um nome de domínio para seu site?
+
+Sim, já registrei o apexclubedetiro.com.br. Te envio os acessos do Registro.br no privado.
+
+Você tem um servidor de hospedagem?
+
+Sim, tenho conta na Hostinger. Te passo o login e senha de acesso por e-mail/privado.
+
+Seu site deve seguir algum padrão de identidade visual?
+
+Sim! Nosso logo usa as cores Preto, Cinza Grafite e Laranja Tático (ou Dourado). Queremos algo moderno, que passe muita segurança, profissionalismo e autoridade, sem parecer poluído.
+
+Informações Adicionais
+Existe alguma outra informação não listada aqui que você gostaria de nos informar?
+
+É fundamental deixar bem visível no rodapé e nas páginas que o clube cumpre rigorosamente todas as legislações vigentes e normas do Exército Brasileiro / Polícia Federal, exigindo documento com foto e antecedentes criminais para qualquer prática no local. Prezamos muito pela legalidade e responsabilidade.

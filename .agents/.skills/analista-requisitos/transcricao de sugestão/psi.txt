@@ -1,0 +1,113 @@
+Briefing para Criação de Site — Psicologia & Saúde Mental
+Dados Iniciais & Serviços
+Qual é o seu nome e o nome da sua empresa para incluirmos no site?
+
+Dr. Lucas Andrade — Psicologia Clínica & Neuropsicologia
+
+Quais produtos ou serviços sua empresa oferece?
+
+Psicoterapia individual para adultos e adolescentes (presencial e online), Terapia Cognitivo-Comportamental (TCC), acompanhamento para ansiedade, depressão e burnout, avaliação neuropsicológica e orientação para desenvolvimento pessoal e manejo do estresse.
+
+Objetivo & Estrutura
+Objetivo do Site
+
+Apresentar meu trabalho com ética e acolhimento, agendar consultas presenciais e sessões online, transmitir confiança profissional e educar os pacientes sobre a importância da saúde mental através de artigos e conteúdos.
+
+Seções do Site
+
+Home, Sobre Mim (Formação & Abordagem), Áreas de Atuação (Serviços), Como Funciona a Terapia (Presencial x Online), Blog/Artigos, Depoimentos/Avaliações e Contato/Agendamento.
+
+Conteúdo & Identidade
+Você tem textos prontos ou descrições sobre seus produtos/serviços?
+
+Terapia Cognitivo-Comportamental (TCC): Abordagem estruturada e focada no momento presente, auxiliando na identificação e reestruturação de padrões de pensamentos e comportamentos disfuncionais.
+
+Atendimento Online: Sessões com a mesma eficácia da modalidade presencial, realizadas em plataforma segura e com total sigilo profissional, no conforto da sua casa.
+
+Manejo de Ansiedade e Burnout: Estratégias práticas para gerenciamento do estresse, sobrecarga emocional e regulação do humor no cotidiano.
+
+Descrição sobre a empresa
+
+Atuo há mais de 8 anos oferecendo um espaço seguro, ético e livre de julgamentos. Meu objetivo é proporcionar um ambiente de acolhimento e escuta qualificada, unindo embasamento científico e empatia para ajudar você a conquistar mais equilíbrio emocional e qualidade de vida.
+
+Você tem um slogan ou frase de impacto que gostaria de usar no site?
+
+"Um espaço seguro de escuta, acolhimento e transformação pessoal."
+
+Políticas de Privacidade, trocas ou devoluções
+
+Rigoroso respeito ao Código de Ética Profissional do Psicólogo e à LGPD. Garantia do sigilo das informações e dados cadastrais. Remarcações de consultas são permitidas com até 24 horas de antecedência.
+
+Quais páginas o site precisa ter?
+
+Página Inicial (Home)
+
+Sobre Mim (Minha Trajetória)
+
+Serviços / Especialidades
+
+Terapia Online (Como funciona)
+
+Blog (Artigos sobre Saúde Mental)
+
+Contato & Agendamento
+
+Design & Funcionalidades
+Inspirações
+
+Prefiro uma estética minimalista, acolhedora e leve (tons suaves de verde-oliva ou bege, azul sereno e branco), sem poluição visual.
+
+Inspiração 1: Vittude (Pela clareza e facilidade de agendamento)
+
+Inspiração 2: Zenklub (Pela linguagem acessível e visual limpo)
+
+Inspiração 3: Confio inteiramente no seu bom gosto para criar algo elegante e sereno!
+
+Há alguma funcionalidade específica que você deseja no site?
+
+Botão direto do WhatsApp para agendamento de consultas.
+
+Integração com calendário online (ex: Calendly ou similar) para pré-agendamento de horários.
+
+Seção de FAQ (Perguntas Frequentes) tirando dúvidas sobre reembolso do plano de saúde, duração das sessões e sigilo.
+
+Selo/Aviso visível sobre o registro ativo no CFP e cadastro no e-Psi (para atendimento online).
+
+Fotos e material visuais que serão usados
+
+Tenho fotos profissionais de retrato em estúdio, fotos do consultório presencial e meu logotipo em alta resolução. Vou enviar a pasta completa para o e-mail informado.
+
+Contato & Redes Sociais
+Telefones para contato: (84) 3111-0000
+
+WhatsApp para contato: (84) 99777-0000
+
+E-mail para contato: contato@lucasandradepsicologia.com.br
+
+Links das redes sociais:
+
+Instagram: @psi.lucasandrade
+
+LinkedIn: /in/lucasandrade-psicologo
+
+SEO & Infraestrutura
+Se você fosse procurar sua empresa no Google, quais palavras usaria?
+
+Psicólogo especialista em ansiedade; Terapia cognitivo-comportamental presencial e online; Consulta com psicólogo online; Atendimento psicológico para adultos; Psicólogo com reembolso de plano.
+
+Você registrou um nome de domínio para seu site?
+
+Sim, o domínio lucasandradepsicologia.com.br já foi registrado. Enviarei os dados de acesso no privado.
+
+Você tem um servidor de hospedagem?
+
+Sim, conta ativa na Hostinger. Te repasso login e senha no privado.
+
+Seu site deve seguir algum padrão de identidade visual?
+
+Sim! Minhas cores são Verde Sálvia, Areia/Bege Quente e Branco. O design deve transmitir paz, acolhimento, profissionalismo e leveza.
+
+Informações Adicionais
+Existe alguma outra informação não listada aqui que você gostaria de nos informar?
+
+Por exigência do Conselho Federal de Psicologia (CFP), é obrigatório incluir de forma visível o número do meu registro profissional (CRP) no rodapé e lembrar que o site não realiza atendimento de emergência ou crise suicida, direcionando esses casos para o CVV (188) ou hospitais de emergência.

@@ -149,7 +149,7 @@ if (closeMenuBtn) closeMenuBtn.addEventListener('click', toggleMenu);
 
 // --- AI Chat Logic (NVIDIA Nemotron Integration) ---
 const NVIDIA_API_KEY = import.meta.env.VITE_NVIDIA_API_KEY;
-const NVIDIA_MODEL = import.meta.env.VITE_NVIDIA_MODEL || "nvidia/nemotron-4-340b-instruct";
+const NVIDIA_MODEL = import.meta.env.VITE_NVIDIA_MODEL || "minimax/minimax-m3:free";
 
 const chatToggle = document.getElementById('ai-chat-toggle');
 const chatContainer = document.getElementById('ai-chat-container');
